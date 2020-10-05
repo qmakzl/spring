@@ -1,8 +1,8 @@
 # spring
 ***
 >1. ex00
->>  - STS에서 Tomcat서버 설정과 프로젝트 실행
->>  - Lombok 라이브러리 설치
+>>  - STS에서 Tomcat서버 설정과 프로젝트 실행<<
+>>  - Lombok 라이브러리 설치<<
 >>  - DI적용을 위한 코드 작성과 Lombok적용 설정
 >>  - Test 코드 작성과 객체 자동 생성을 위한 root-context.xml설정
 >>  - Oracle 서비스 확인/ SQLPlus 실행, sqlDeveloper 설치와 접속
