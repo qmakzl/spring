@@ -1,4 +1,5 @@
 # spring
+***
 1. ex00
 - STS에서 Tomcat서버 설정과 프로젝트 실행
 - Lombok 라이브러리 설치
@@ -11,7 +12,7 @@
 - STS에서 DB연결 테스트하기 / HikariCP를 이용하여 DB연결하기
 - Mybatis 설정과 DB연결
 - Mybatis 테스트와 로그 -log4j
-***
+---
 1. ex01
 - Spring MVC 프로젝트만들기, 설정
 - Controller의 이해와 원리
