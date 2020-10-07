@@ -21,3 +21,12 @@
 >>  - Controller - fileUpload, Upload된 파일 저장하기
 >>  - Controller - 예외처리
 ***
+>3. projectnews
+>> - board - url링크 &dumy 데이터를 이용한 List구현
+>> - board - JSP구현 &URL 링크 구현과 dumy 데이터를 이용한 view와 write 폼 구현
+>> - board - JSP구현 dumy데이터를 이용한 update폼 구현
+>> - board - JDBC - 오라클에서 board 테이블 생성
+>> - board - JDBC - service 작성과 mapper 인터페이스 자동 DI구현
+>> - board - JDBC - controller에서 service자동 DI와 JSP데이터 처리
+>> - board - 페이지처리 - pageNav, pageObject를 이용한 JSP에 퍼지네이션 붙이기, 검색처리
+***
