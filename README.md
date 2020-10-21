@@ -28,6 +28,6 @@
 >> - board - JDBC - 오라클에서 board 테이블 생성
 >> - board - JDBC - service 작성과 mapper 인터페이스 자동 DI구현
 >> - board - JDBC - controller에서 service자동 DI와 JSP데이터 처리
->> - board - 페이지처리 - pageNav, pageObject를 이용한 JSP에 퍼지네이션 붙이기, 검색처리
->
+>> - board - 페이지처리 - pageNav, pageObject를 이용한 JSP에 퍼지네이션 붙이기, 검색처리 
+> 
 >
