@@ -11,7 +11,7 @@
 >>  - STS에서 DB연결 테스트하기 / JDBC로 연결하기
 >>  - STS에서 DB연결 테스트하기 / HikariCP를 이용하여 DB연결하기
 >>  - Mybatis 설정과 DB연결
->>  - Mybatis 테스트와 로그 -log4j 
+>>  - Mybatis 테스트와 로그 -log4j  
 >
 >2. ex01 
 >>  - Spring MVC 프로젝트만들기, 설정
