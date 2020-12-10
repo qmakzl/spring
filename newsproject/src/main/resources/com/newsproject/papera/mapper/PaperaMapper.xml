@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 1. com.projectnews.papera.mapper.PaperaMapper 인터페이스 선언
+		  - src/main/java
+	 2. root-context.xml mybatis:scan 태그로 기본 패키지 지정
+	 3. com.projectnews.papera.mapper.PaperaMapper.xml 실행 작성
+	 	  - src/main/resources -->
+	 	  
+<mapper namespace="com.newsproject.papera.mapper.PaperaMapper">
+
+<select id="list" resultType="com.newsproject.papera.vo.PaperaVO">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+select no, title, writer, writeDate, hit
+from papera
+order by no desc
+]]>
+</select>
+
+<select id="view" resultType="com.newsproject.papera.vo.PaperaVO">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+select no, title, writer, writeDate, hit
+from papera
+where no = #{no}
+]]>
+</select>
+
+<insert id="write">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+insert into papera(no, title, content, writer, pw)
+values(papera_seq.nextval, #{title}, #{content}, #{writer}, #{pw})
+]]>
+</insert>
+
+<!-- 조회수 1 증가 -->
+<update id="increase" >
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+update papera
+set hit = hit + 1
+where no = #{no}
+]]>
+</update>
+
+<!-- 게시판 글수정 -->
+<update id="update" >
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+update papera
+set title = #{title}, content = #{content}, writer = #{writer}
+where no = #{no} and pw = #{pw}
+]]>
+</update>
+
+<!-- 게시판 글삭제 -->
+<delete id="delete" >
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+delete from papera
+where no = #{no} and pw = #{pw}
+]]>
+</delete>
+
+
+</mapper>

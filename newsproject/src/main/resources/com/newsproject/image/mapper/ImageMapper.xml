@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 1. com.newsproject.image.mapper.ImageMapper 인터페이스 선언
+		  - src/main/java
+	 2. root-context.xml mybatis:scan 태그로 기본 패키지 지정
+	 3. com.newsproject.image.mapper.ImageMapper.xml 실행 작성
+	 	  - src/main/resources -->
+	 	  
+<mapper namespace="com.newsproject.image.mapper.ImageMapper">
+
+<select id="list" resultType="com.newsproject.image.vo.ImageVO">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+select *
+from(
+	select rownum rnum, no, title, writer, writeDate, fileName
+	from(
+		select no, title, writer, writeDate, fileName
+		from image
+		<include refid="search" />
+		order by no desc
+	)
+)
+where rnum between #{startRow} and #{endRow}
+
+</select>
+
+<!-- 전체 데이터 가져오기 : 검색 적용 -->
+<select id="getRow" resultType="java.lang.Integer">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+select count(*)
+from image
+<include refid="search" />
+</select>
+
+<!-- 검색에 사용되는 조건 처리문 -->
+<sql id="search">
+  <if test="word !=null and word != ''.toString">
+   where ( 2 = 1
+   <!-- 2글자 이상인 경우 : String 취급,
+     한 글자인 경우:char 취급 => toString()를 이용해서 문자열로 만듬-->
+   <if test="key == 't'.toString()">
+    <!-- concat(문자열, 문자열) : 2개만 연결,
+      "||" : 문자열 이어 붙이는 연산자 -->
+       or title like '%'||#{word}||'%'
+   </if>
+   <if test="key == 'c'.toString()">
+          or content like '%'||#{word}||'%'
+   </if>
+   <if test="key == 'w'.toString()">
+          or writer like '%'||#{word}||'%'
+   </if>
+   <if test="key == 'tc'.toString()">
+          or title like '%'||#{word}||'%'
+          or content like '%'||#{word}||'%'
+   </if>
+   <if test="key == 'tw'.toString()">
+          or title like '%'||#{word}||'%'
+          or writer like '%'||#{word}||'%'
+   </if>
+   <if test="key == 'cw'.toString()">
+          or content like '%'||#{word}||'%'
+          or writer like '%'||#{word}||'%'
+   </if>
+   <if test="key == 'all'">
+          or title like '%'||#{word}||'%'
+          or content like '%'||#{word}||'%'
+          or writer like '%'||#{word}||'%'
+   </if>
+   )
+  </if>
+
+</sql>
+
+<insert id="write">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+insert into image(no, title, content, writer, fileName)
+values(image_seq.nextval, #{title}, #{content}, #{writer}, #{fileName})
+]]>
+</insert>
+
+<select id="view" resultType="com.newsproject.image.vo.ImageVO">
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+select no, title, content, writer, writeDate, fileName
+from image
+where no = #{no}
+]]>
+</select>
+
+<!-- 게시판 글수정 -->
+<update id="update" >
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+update image
+set title = #{title}, content = #{content}, writer = #{writer}
+where no = #{no}
+]]>
+</update>
+
+<!-- 게시판 파일수정 -->
+<update id="updateFile" >
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+update image
+set fileName = #{fileName}
+where no = #{no}
+]]>
+</update>
+
+<!-- 게시판 글삭제 -->
+<delete id="delete" >
+<!-- <![CDATA[ 이곳에 있는 것은 mybatis가 처리하지 않고 그대로 넘긴다. ]]> -->
+<![CDATA[
+delete from image
+where no = #{no}
+]]>
+</delete>
+
+
+</mapper>
