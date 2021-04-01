@@ -5,7 +5,7 @@ create table tbl_attach (
     filetype char(1) default 'I',
     bno number(10,0)
 );
-
+ 
 alter table tbl_attach add constraint pk_attach primary key (uuid);
 
 alter table tbl_attach add constraint fk_board_attach foreign key (bno)
