@@ -15,7 +15,7 @@
 >
 >
 >2. ex01 
->>  - Spring MVC 프로젝트만들기, 설정 
+>>  - Spring MVC 프로젝트만들기, 설정  
 >>  - Controller의 이해와 원리 
 >>  - Controller의 mapping과 return
 >>  - Controller의 Object리턴과 JSON변환 라이브러리
