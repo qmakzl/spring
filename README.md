@@ -4,7 +4,7 @@
 >>  - STS에서 Tomcat서버 설정과 프로젝트 실행
 >>  - Lombok 라이브러리 설치
 >>  - DI적용을 위한 코드 작성과 Lombok적용 설정
->>  - Test 코드 작성과 객체 자동 생성을 위한 root-context.xml설정
+>>  - Test 코드 작성과 객체 자동 생성을 위한 root-context.xml설정 
 >>  - Oracle 서비스 확인/ SQLPlus 실행, sqlDeveloper 설치와 접속
 >>  - sql Developer에서 sys계정 접속과 사용자 계정
 >>  - 오라클 드라이버를 STS에 설정하기
